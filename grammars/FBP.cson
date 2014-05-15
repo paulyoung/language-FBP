@@ -1,0 +1,273 @@
+'fileTypes': [
+  'fbp'
+]
+'name': 'FBP'
+'patterns': [
+  {
+    'include': '#comment'
+  }
+  {
+    'include': '#legacy_export_public_name'
+  }
+  {
+    'include': '#legacy_export_private_name_port'
+  }
+  {
+    'include': '#legacy_export_private_name'
+  }
+  {
+    'include': '#legacy_export_assignment_operator'
+  }
+  {
+    'include': '#legacy_export_statement'
+  }
+  {
+    'include': '#export_public_name'
+  }
+  {
+    'include': '#export_node_port'
+  }
+  {
+    'include': '#export_node'
+  }
+  {
+    'include': '#export_assignment_operator'
+  }
+  {
+    'include': '#inport_statement'
+  }
+  {
+    'include': '#outport_statement'
+  }
+  {
+    'include': '#right_port'
+  }
+  {
+    'include': '#connection'
+  }
+  {
+    'include': '#left_port'
+  }
+  {
+    'include': '#node'
+  }
+  {
+    'include': '#iip'
+  }
+]
+'repository':
+  'comment':
+    'captures':
+      '1':
+        'name': 'comment.line.number-sign.fbp'
+      '2':
+        'name': 'punctuation.definition.comment.line.fbp'
+    'comment': 'Single-line comment.'
+    'match': '((#).*)'
+  'connection':
+    'captures':
+      '1':
+        'name': 'entity.name.function.fbp'
+      '2':
+        'name': 'variable.parameter.fbp'
+      '3':
+        'name': 'variable.parameter.fbp'
+      '4':
+        'name': 'variable.parameter.fbp'
+      '5':
+        'name': 'entity.name.tag.fbp'
+      '6':
+        'name': 'entity.name.function.fbp'
+      '7':
+        'name': 'storage.type.fbp'
+      '8':
+        'name': 'constant.numeric.fbp'
+      '9':
+        'name': 'storage.type.fbp'
+      '10':
+        'name': 'string.quoted.single.fbp'
+      '11':
+        'name': 'keyword.operator.fbp'
+    'comment': 'Connection.'
+    'match': '(?:([a-zA-Z0-9_]+\\()(?:([a-zA-Z\\/\\-0-9_]+)|([a-zA-Z\\/\\-0-9_]+)\\:|([a-zA-Z\\/\\-0-9_]+)\\:([a-zA-Z\\/=_,0-9]+))?(\\))\\s(?:([A-Z\\.0-9_]+)\\[([0-9])\\]|([A-Z\\.0-9_]+))|(\\\'(?:\\\\\\\'|[^\'])*\\\'))\\s(->)'
+  'export_assignment_operator':
+    'captures':
+      '1':
+        'name': 'constant.language.fbp'
+      '2':
+        'name': 'keyword.operator.fbp'
+    'comment': 'Export assignment operator.'
+    'match': '^((?:IN|OUT)PORT)(=)'
+  'export_node':
+    'captures':
+      '1':
+        'name': 'constant.language.fbp'
+      '2':
+        'name': 'keyword.operator.fbp'
+      '3':
+        'name': 'entity.name.function.fbp'
+    'comment': 'Export node.'
+    'match': '^((?:IN|OUT)PORT)(=)([A-Za-z0-9_]+)'
+  'export_node_port':
+    'captures':
+      '1':
+        'name': 'constant.language.fbp'
+      '2':
+        'name': 'keyword.operator.fbp'
+      '3':
+        'name': 'entity.name.function.fbp'
+      '4':
+        'name': 'storage.type.fbp'
+    'comment': 'Export node port.'
+    'match': '^((?:IN|OUT)PORT)(=)([A-Za-z0-9_]+)\\.([A-Z0-9_]+)'
+  'export_public_name':
+    'captures':
+      '1':
+        'name': 'constant.language.fbp'
+      '2':
+        'name': 'keyword.operator.fbp'
+      '3':
+        'name': 'entity.name.function.fbp'
+      '4':
+        'name': 'storage.type.fbp'
+      '5':
+        'name': 'variable.fbp'
+    'comment': 'Export public name.'
+    'match': '^((?:IN|OUT)PORT)(=)([A-Za-z0-9_]+)\\.([A-Z0-9_]+):([A-Z0-9_]+)'
+  'iip':
+    'comment': 'Initial information packet.'
+    'match': '(\\\'(?:\\\\\\\'|[^\'])*\\\')'
+    'name': 'string.quoted.single.fbp'
+  'inport_statement':
+    'captures':
+      '1':
+        'name': 'constant.language.fbp'
+    'comment': 'INPORT statement.'
+    'match': '^(INPORT)'
+  'left_port':
+    'captures':
+      '1':
+        'name': 'entity.name.function.fbp'
+      '2':
+        'name': 'variable.parameter.fbp'
+      '3':
+        'name': 'variable.parameter.fbp'
+      '4':
+        'name': 'variable.parameter.fbp'
+      '5':
+        'name': 'entity.name.tag.fbp'
+      '6':
+        'name': 'entity.name.function.fbp'
+      '7':
+        'name': 'storage.type.fbp'
+      '8':
+        'name': 'constant.numeric.fbp'
+      '9':
+        'name': 'storage.type.fbp'
+    'comment': 'Port on the left hand side of a connection.'
+    'match': '([a-zA-Z0-9_]+\\()(?:([a-zA-Z\\/\\-0-9_]+)|([a-zA-Z\\/\\-0-9_]+)\\:|([a-zA-Z\\/\\-0-9_]+)\\:([a-zA-Z\\/=_,0-9]+))?(\\))\\s(?:([A-Z\\.0-9_]+)\\[([0-9])\\]|([A-Z\\.0-9_]+))'
+  'legacy_export_assignment_operator':
+    'captures':
+      '1':
+        'name': 'constant.language.fbp'
+      '2':
+        'name': 'keyword.operator.fbp'
+    'comment': 'Legacy export assignment operator.'
+    'match': '^(EXPORT)(=)'
+  'legacy_export_private_name':
+    'captures':
+      '1':
+        'name': 'constant.language.fbp'
+      '2':
+        'name': 'keyword.operator.fbp'
+      '3':
+        'name': 'variable.fbp'
+    'comment': 'Legacy export private name.'
+    'match': '^(EXPORT)(=)([A-Za-z0-9_]+)'
+  'legacy_export_private_name_port':
+    'captures':
+      '1':
+        'name': 'constant.language.fbp'
+      '2':
+        'name': 'keyword.operator.fbp'
+      '3':
+        'name': 'variable.fbp'
+      '4':
+        'name': 'storage.type.fbp'
+    'comment': 'Legacy export private name port.'
+    'match': '^(EXPORT)(=)([A-Za-z0-9_]+)\\.([A-Za-z\\.0-9_]+)'
+  'legacy_export_public_name':
+    'captures':
+      '1':
+        'name': 'constant.language.fbp'
+      '2':
+        'name': 'keyword.operator.fbp'
+      '3':
+        'name': 'variable.fbp'
+      '4':
+        'name': 'storage.type.fbp'
+      '5':
+        'name': 'variable.fbp'
+    'comment': 'Legacy export public name.'
+    'match': '^(EXPORT)(=)([A-Za-z0-9_]+)\\.([A-Za-z\\.0-9_]+):([A-Z0-9_]+)'
+  'legacy_export_statement':
+    'captures':
+      '1':
+        'name': 'constant.language.fbp'
+    'comment': 'Legacy EXPORT statement.'
+    'match': '^(EXPORT)'
+  'node':
+    'captures':
+      '1':
+        'name': 'entity.name.function.fbp'
+      '2':
+        'name': 'variable.parameter.fbp'
+      '3':
+        'name': 'variable.parameter.fbp'
+      '4':
+        'name': 'variable.parameter.fbp'
+      '5':
+        'name': 'entity.name.tag.fbp'
+      '6':
+        'name': 'entity.name.function.fbp'
+    'comment': 'Node.'
+    'match': '([a-zA-Z0-9_]+\\()(?:([a-zA-Z\\/\\-0-9_]+)|([a-zA-Z\\/\\-0-9_]+)\\:|([a-zA-Z\\/\\-0-9_]+)\\:([a-zA-Z\\/=_,0-9]+))?(\\))'
+  'outport_statement':
+    'captures':
+      '1':
+        'name': 'constant.language.fbp'
+    'comment': 'OUTPORT statement.'
+    'match': '^(OUTPORT)'
+  'right_port':
+    'captures':
+      '1':
+        'name': 'entity.name.function.fbp'
+      '2':
+        'name': 'variable.parameter.fbp'
+      '3':
+        'name': 'variable.parameter.fbp'
+      '4':
+        'name': 'variable.parameter.fbp'
+      '5':
+        'name': 'entity.name.tag.fbp'
+      '6':
+        'name': 'entity.name.function.fbp'
+      '7':
+        'name': 'storage.type.fbp'
+      '8':
+        'name': 'constant.numeric.fbp'
+      '9':
+        'name': 'storage.type.fbp'
+      '10':
+        'name': 'string.quoted.single.fbp'
+      '11':
+        'name': 'keyword.operator.fbp'
+      '12':
+        'name': 'storage.type.fbp'
+      '13':
+        'name': 'constant.numeric.fbp'
+      '14':
+        'name': 'storage.type.fbp'
+    'comment': 'Port on the right hand side of a connection.'
+    'match': '(?:([a-zA-Z0-9_]+\\()(?:([a-zA-Z\\/\\-0-9_]+)|([a-zA-Z\\/\\-0-9_]+)\\:|([a-zA-Z\\/\\-0-9_]+)\\:([a-zA-Z\\/=_,0-9]+))?(\\))\\s(?:([A-Z\\.0-9_]+)\\[([0-9])\\]|([A-Z\\.0-9_]+))|(\\\'(?:\\\\\\\'|[^\'])*\\\'))\\s(->)\\s(?:([A-Z\\.0-9_]+)\\[([0-9])\\]|([A-Z\\.0-9_]+))'
+'scopeName': 'source.fbp'

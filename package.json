@@ -1,0 +1,10 @@
+{
+  "name": "language-FBP",
+  "version": "0.0.0",
+  "description": "Support for the Flow Based Programming DSL.",
+  "repository": "https://github.com/paulyoung/language-FBP",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  }
+}
